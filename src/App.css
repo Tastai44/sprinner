@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1C1C1C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 368.03px;
+  height: 368.03px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 15px solid #fff;
+  position: relative;
+  overflow: hidden;
+  transition: 5s;
+  top: 50px;
+}
+
+.container div {
+  height: 50%;
+  width: 200px;
+  position: absolute;
+  clip-path: polygon(100% 0, 50% 100%, 0 0);
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #fff;
+  left: 70px;
+  writing-mode: vertical-rl;
+}
+
+.container .one {
+  background-color: #8BC349;
+}
+
+.container .two {
+  background-color: #FF9800;
+}
+
+.container .three {
+  background-color: #F44336;
+}
+
+.container .four {
+  background-color: #9B27B0;
+}
+
+.container .five {
+  background-color: #3E51B5;
+
+}
+
+.container .six {
+  background-color: #01A9F4;
+}
+
+.container .seven {
+  background-color: #009588;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+
+.arrow::before {
+  content: "\1F817";
+  font-size: 50px;
+}
+
+#spin {
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #e2e2e2;
+  text-transform: uppercase;
+  border: 0px solid #fff;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFFFFF;
+  width: 69px;
+  height: 69px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 1px;
+}
+
+#spinTwo {
+  position: absolute;
+  top: 270px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #e2e2e2;
+  text-transform: uppercase;
+  border: 0px solid #fff;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFFFFF;
+  width: 69px;
+  height: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 1px;
+  clip-path: polygon(100% 0, 50% 100%, 0 0);
+}
+
+#clickBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
