@@ -10,6 +10,7 @@ interface dataTable {
 }
 
 export default function Home() {
+    // Data of all prize
     const data = [
         { item: "Apple Watch ⌚️", number: 1, index: 'one', quantity: 1 },
         { item: "Thank you 😋", number: 2, index: 'two', quantity: -1 },
@@ -19,12 +20,12 @@ export default function Home() {
         { item: "Thank you 😱", number: 6, index: 'six', quantity: -1 },
         { item: "Thankyou 🫣", number: 7, index: 'seven', quantity: -1 },
     ];
-    const myButtonRef = useRef<HTMLButtonElement | null>(null);
-    const [tableData, setTableData] = useState<dataTable[]>([]);
-    const [isFirst, setIsFrist] = useState<boolean>(false);
-    const [open, setOpen] = useState(false);
-    const [result, setResult] = useState(0);
-    const [resultItem, setResultItem] = useState("");
+    const myButtonRef = useRef<HTMLButtonElement | null>(null); // Referent the position for auto scrolll down
+    const [tableData, setTableData] = useState<dataTable[]>([]); // For mapping data into table
+    const [isFirst, setIsFrist] = useState<boolean>(false); // For checking is it the first time of loading
+    const [open, setOpen] = useState(false); // For open and close the result
+    const [result, setResult] = useState(0); // Storing item's number
+    const [resultItem, setResultItem] = useState(""); // Storing item's name
 
     useEffect(() => {
         if (!isFirst) {
@@ -62,22 +63,27 @@ export default function Home() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result]);
 
-    const handleButtonClick = () => {
+    // Function for auto scrolling down
+    const handleScrollDown = () => {
         if (myButtonRef.current) {
             myButtonRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
+    // Function for open the result
     const handleOpen = () => setOpen(true);
+    // Function for close the result
     const handleClose = () => {
         setOpen(false);
-        handleButtonClick();
+        handleScrollDown();
     };
 
+    // Function for refresh web page
     const handleRefresh = () => {
         window.location.reload();
     };
 
+    // Function for picking the reward
     const handleSpinClick = () => {
         let randomNumber: SetStateAction<number>;
         let isNoZero = 0;
@@ -127,7 +133,12 @@ export default function Home() {
             </div>
             <Box sx={{ display: "flex", justifyContent: "center", position: "absolute", marginTop: "430px" }}>
                 <Button
-                    sx={{ width: "325px", height: "58px", background: "#FFFFFF", padding: "16px", color: "black", borderRadius: "8px" }}
+                    sx={{
+                        width: "325px", height: "58px", background: "#FFFFFF", padding: "16px", color: "black", borderRadius: "8px", "&:hover": {
+                            color: "white",
+                            backgroundColor: "grey",
+                        }
+                    }}
                     onClick={handleSpinClick}
                 >
                     Spinnn!
@@ -157,7 +168,12 @@ export default function Home() {
                             ))}
                         </TableBody>
                     </Table>
-                    <Button onClick={handleRefresh} sx={{ background: "white", color: "black" }}>Reset</Button>
+                    <Button onClick={handleRefresh} sx={{
+                        background: "white", color: "black", "&:hover": {
+                            color: "white",
+                            backgroundColor: "grey",
+                        },
+                    }}>Reset</Button>
                 </Box>
             </Box>
         </Box>
